@@ -20,6 +20,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
             int year = d.getYear();
             int month = d.getMonthValue();
             int day = d.getDayOfMonth();
-            return new DatePickerDialog(getActivity(), this, year, --month, day);}
+            return new DatePickerDialog(requireActivity(), this, year, --month, day);}
         @Override
         public void onDateSet(DatePicker datePicker, int year, int month, int day){
             LocalDate dob = LocalDate.of(year, ++month, day);
-            ((MainActivity)getActivity()).updateDOB(dob);
+            ((MainActivity) requireActivity()).updateDOB(dob);
         }
     }
 

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
-    private Context context;
+    private final Context context;
     private static final String DATABASE_NAME = "ContactDB.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "persons";
@@ -81,5 +81,54 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
 
         return cursor;
+    }
+
+    public void updateData(String row_id, String name, String dob, String email, String image){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_DOB, dob);
+        cv.put(COLUMN_EMAIL, email);
+        cv.put(COLUMN_IMAGE, image);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+
+        if(result == -1){
+            new AlertDialog.Builder(context)
+                    .setTitle("Error")
+                    .setMessage("Error updating contact")
+                    .setPositiveButton("Back", null)
+                    .show();
+        }else{
+            new AlertDialog.Builder(context)
+                    .setTitle("Success")
+                    .setMessage("Contact updated")
+                    .setPositiveButton("OK", null)
+                    .show();
+        }
+    }
+
+    public void deleteOneRow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+
+        if(result == -1){
+            new AlertDialog.Builder(context)
+                    .setTitle("Error")
+                    .setMessage("Error deleting contact")
+                    .setPositiveButton("Back", null)
+                    .show();
+        }else{
+            new AlertDialog.Builder(context)
+                    .setTitle("Success")
+                    .setMessage("Contact deleted")
+                    .setPositiveButton("OK", null)
+                    .show();
+        }
+    }
+
+    public void deleteAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME);
     }
 }

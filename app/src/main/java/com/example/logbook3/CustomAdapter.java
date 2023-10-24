@@ -14,8 +14,12 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    private Context context;
-    private ArrayList demo_id, demo_name, demo_dob, demo_email, demo_image;
+    private final Context context;
+    private final ArrayList demo_id;
+    private final ArrayList demo_name;
+    private final ArrayList demo_dob;
+    private final ArrayList demo_email;
+    private final ArrayList demo_image;
 
     CustomAdapter(Context context, ArrayList demo_id, ArrayList demo_name, ArrayList demo_dob, ArrayList demo_email, ArrayList demo_image){
         this.context = context;
@@ -48,7 +52,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return demo_id.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView demo_name_txt, demo_dob_txt, demo_email_txt, demo_image_txt;
         ImageView demo_image;

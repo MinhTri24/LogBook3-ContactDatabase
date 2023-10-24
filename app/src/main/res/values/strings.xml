@@ -4,4 +4,13 @@
     <string name="dob">DOB*</string>
     <string name="email">Email*</string>
     <string name="details">Details</string>
+    <string name="android">ANDROID</string>
+    <string name="boy">BOY</string>
+    <string name="girl">GIRL</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="select_your_dob">Select your dob</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="save_details">Save Details</string>
+    <string name="view_details">View Details</string>
+    <string name="profile">PROFILE</string>
 </resources>

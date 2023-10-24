@@ -27,7 +27,8 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_android"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/girlImg" />
+        app:layout_constraintTop_toBottomOf="@+id/girlImg"
+        android:contentDescription="@string/android" />
 
     <ImageView
         android:id="@+id/boyImg"
@@ -37,7 +38,8 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_boy"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/email_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/email_tv"
+        android:contentDescription="@string/boy" />
 
     <ImageView
         android:id="@+id/girlImg"
@@ -47,7 +49,8 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_girl"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/boyImg" />
+        app:layout_constraintTop_toBottomOf="@+id/boyImg"
+        android:contentDescription="@string/girl" />
 
     <TextView
         android:id="@+id/name_tv"
@@ -90,14 +93,15 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_border_bg"
         android:ems="10"
-        android:hint="Enter your name"
+        android:hint="@string/enter_your_name"
         android:inputType="text"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
         android:textColor="#b5b5b5"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/dob_control"
@@ -109,7 +113,7 @@
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
         android:textSize="25sp"
-        android:hint="Select your dob"
+        android:hint="@string/select_your_dob"
         android:textColor="#b5b5b5"
         android:background="@drawable/rounded_border_bg"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +129,7 @@
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
         android:textSize="25sp"
-        android:hint="Enter your email"
+        android:hint="@string/enter_your_email"
         android:textColor="#b5b5b5"
         android:background="@drawable/rounded_border_bg"
         android:inputType="textEmailAddress"
@@ -168,7 +172,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
-        android:text="Save Details"
+        android:text="@string/save_details"
         android:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_input" />
@@ -179,7 +183,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="20dp"
-        android:text="View Details"
+        android:text="@string/view_details"
         android:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/save_btn" />
