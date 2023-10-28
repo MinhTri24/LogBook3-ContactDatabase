@@ -134,7 +134,8 @@
         android:background="@drawable/rounded_border_bg"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dob_control" />
+        app:layout_constraintTop_toBottomOf="@+id/dob_control"
+        android:autofillHints="" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
