@@ -13,4 +13,6 @@
     <string name="save_details">Save Details</string>
     <string name="view_details">View Details</string>
     <string name="profile">PROFILE</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -1,10 +1,12 @@
 package com.example.logbook3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +47,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.demo_email_txt.setText(String.valueOf(demo_email.get(position)));
         int resourceId = context.getResources().getIdentifier(String.valueOf(demo_image.get(position)), "drawable", context.getPackageName());
         holder.demo_image.setImageResource(resourceId);
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UpdateActivity.class);
+                intent.putExtra("id", String.valueOf(demo_id.get(position)));
+                intent.putExtra("name", String.valueOf(demo_name.get(position)));
+                intent.putExtra("dob", String.valueOf(demo_dob.get(position)));
+                intent.putExtra("email", String.valueOf(demo_email.get(position)));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -54,8 +67,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView demo_name_txt, demo_dob_txt, demo_email_txt, demo_image_txt;
+        TextView demo_name_txt, demo_dob_txt, demo_email_txt;
         ImageView demo_image;
+        LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,6 +77,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             demo_dob_txt = itemView.findViewById(R.id.dob_txt);
             demo_email_txt = itemView.findViewById(R.id.email_txt);
             demo_image = itemView.findViewById(R.id.image_img);
+            mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
 }
